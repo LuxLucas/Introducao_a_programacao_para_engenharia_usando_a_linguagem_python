@@ -181,18 +181,6 @@ Os operadores lógicos comparam variáveis e retornam um _valor lógico_ (tipo b
 
 Expressões lógicas podem ser conectadas pelos operadores _and_ (as expressões devem ser verdadeiras para retornar True) e _or_ (pelo menos uma expressão deve ser verdadeira para retornar True). O operador _not_ nega o resultado de uma expressão, retornando um valor contrário, se comparar True retorna False, se comparar False retorna True.
 
-**Tabela de Própria Autoria**
-| Operador |Primeira comparação | Segunda comparação | Resultado |
-| :------: | -------------- | -------------- | --------- |
-| and | True | True | True |
-| and | True | False | False |
-| and | False | False | False |
-| or | True | True | True |
-| or | True | False | True |
-| or | False | False | False |
-| not | True | | False |
-| not | False | | True |
-
 > **_Script 2.5:_** operadoreslogicos.py
 > ```py
 > A = 10
@@ -208,3 +196,28 @@ Expressões lógicas podem ser conectadas pelos operadores _and_ (as expressões
 > print("O valor da variável A é igual ao valor de C ou menor que B - ", A == C or A > B)
 > print("O valor da variável A + 5 é igual ou maior que B - ", A+5 >= B)
 > ```
+
+### Múltiplas atribuições
+O python permite atribuir multiplos valores numa única linha.
+
+```py
+a, b = 2, 1
+# a recebe 2
+# b recebe 1
+
+a, b = b, a   # Troca de valores
+```
+
+### Atribuições condicionais
+Outra forma de atribuir valores a variáveis em Python é a atribuição condicional.
+
+```py
+# Atribui 1 para a variável a
+a = 1
+
+# Se a for maior que 0, atribui o valor 2 para a variável b. Senão, atribui 0
+b = 2 if a > 0 else 0
+
+# Atribui uma mensagem diferente para m conforme o valor de a
+m = "Baixo" if a < 5 else "Alto"
+```
