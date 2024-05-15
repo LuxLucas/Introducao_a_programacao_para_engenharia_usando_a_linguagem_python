@@ -79,13 +79,13 @@ O Python é case _sensitive_, ou seja, diferencia variáveis com letras minúscu
 ### Tipos de variáveis
 A linguagem Python é _Dinâmicamente Tipada_. Significa que toda variável possui seu tipo alterado durante a execução do _script_, sendo o interpretador que decide.
 > _**Escript 2.2:**_ tipos
-> ```py
-> a = 1       # Inteiro
-> a = 1.0     # Float
-> a = "1"     # String
-> a = True    # Booleano
-> a = 3+12j   # Número complexo
-> ```
+ ```py
+ a = 1       # Inteiro
+ a = 1.0     # Float
+ a = "1"     # String
+ a = True    # Booleano
+ a = 3+12j   # Número complexo
+ ```
 
 > "#" (quadrilha) indica um comentário, tudo que o seguir, até o fim da linha, será ignorado pelo interpretador.  
 > "\```" (crase) para comentar mais de uma linha, exemplo: \``` código ```.
@@ -132,34 +132,33 @@ No _script_ 2.4, é exemplificado o uso das operações de divisão e resto para
 - Na linha 4, verifica-se o quanto sobrou para dar de troco, no caso, 35.
 
 > **_Script 2.4:_** maquinatroco
-> ```py
-> troco = 135
-> 
-> notas100 = troco // 100
-> troco = troco % 100
-> print("Entregar ", notas100, "notas de R$ 100,00")
->
-> notas50 = troco // 50
-> troco = troco % 50
-> print("Entregar ", notas50, "notas de R$ 50,00")
->
-> notas20 = troco // 20
-> troco = troco % 20
-> print("Entregar ", notas20, "notas de R$ 20,00")
->
-> notas10 = troco // 10
-> troco = troco % 10
-> print("Entregar ", notas10, "notas de R$ 10,00")
-> 
-> notas5 = troco // 5
-> troco = troco % 5
-> print("Entregar ", notas5, "notas de R$ 5,00")
->
-> notas2 = troco // 2
-> troco = troco % 2
-> print("Entregar ", notas2, "notas de R$ 2,00")
->
-> ```
+```py
+ troco = 135
+ 
+notas100 = troco // 100
+troco = troco % 100
+print("Entregar ", notas100, "notas de R$ 100,00")
+
+notas50 = troco // 50
+troco = troco % 50
+print("Entregar ", notas50, "notas de R$ 50,00")
+
+notas20 = troco // 20
+troco = troco % 20
+print("Entregar ", notas20, "notas de R$ 20,00")
+
+notas10 = troco // 10
+troco = troco % 10
+print("Entregar ", notas10, "notas de R$ 10,00")
+ 
+notas5 = troco // 5
+troco = troco % 5
+print("Entregar ", notas5, "notas de R$ 5,00")
+
+notas2 = troco // 2
+troco = troco % 2
+print("Entregar ", notas2, "notas de R$ 2,00")
+```
 
 > **Exercício 2.4:** Analise e execute o código, decubra quanto de cada notas será necessário para o troco.
 
@@ -182,20 +181,20 @@ Os operadores lógicos comparam variáveis e retornam um _valor lógico_ (tipo b
 Expressões lógicas podem ser conectadas pelos operadores _and_ (as expressões devem ser verdadeiras para retornar True) e _or_ (pelo menos uma expressão deve ser verdadeira para retornar True). O operador _not_ nega o resultado de uma expressão, retornando um valor contrário, se comparar True retorna False, se comparar False retorna True.
 
 > **_Script 2.5:_** operadoreslogicos.py
-> ```py
-> A = 10
-> B = 15
-> C = 10
->
-> print("O valor da variável A é igual ao valor de B - ", A == B)
-> print("O valor da variável A é igual ao valor de C - ", A == C)
-> print("O valor da variável A é maior que o valor de C - ", A > C)
-> print("O valor da variável A não é igual ao valor de C - ", A != C)
-> print("O valor da variável A não é igual ao valor de C - ", not A == B)
-> print("O valor da variável A é igual ao valor de C e menor que B - ", A == C and A > B)
-> print("O valor da variável A é igual ao valor de C ou menor que B - ", A == C or A > B)
-> print("O valor da variável A + 5 é igual ou maior que B - ", A+5 >= B)
-> ```
+```py
+A = 10
+B = 15
+C = 10
+
+print("O valor da variável A é igual ao valor de B - ", A == B)
+print("O valor da variável A é igual ao valor de C - ", A == C)
+print("O valor da variável A é maior que o valor de C - ", A > C)
+print("O valor da variável A não é igual ao valor de C - ", A != C)
+print("O valor da variável A não é igual ao valor de C - ", not A == B)
+print("O valor da variável A é igual ao valor de C e menor que B - ", A == C and A > B)
+print("O valor da variável A é igual ao valor de C ou menor que B - ", A == C or A > B)
+print("O valor da variável A + 5 é igual ou maior que B - ", A+5 >= B)
+```
 
 ### Múltiplas atribuições
 O python permite atribuir multiplos valores numa única linha.
@@ -221,3 +220,48 @@ b = 2 if a > 0 else 0
 # Atribui uma mensagem diferente para m conforme o valor de a
 m = "Baixo" if a < 5 else "Alto"
 ```
+
+## Entrada de dados
+
+Programas normalmente possuem as etapas de _entrada_, _processamento_ e _saída de dados_. Um uso comum para entrada de dados em Python é usando a função `input`, que recebe um texto do teclado (num tipo de dado chamado _string_). 
+
+Porém o tipo _string_ não é o ideal para certos processamentos, como operações aritméticas, para isso são usados métodos _tradutores_:
+```py
+idade = int(input("Qual sua idade? "))
+print(idade)    # ex: 18
+
+salario = float(input("Qual o seu salário? "))
+print(salario)  # 1500.0
+
+idade_string = str(idade)
+print(idade_string) # "18"
+
+numero_complexo = complex(idade + 1j)
+print(numero_complexo)  # 18+1j
+
+valor_bool = bool(numero_complexo)
+print(valor_bool)   # True
+```
+
+## Strings
+O tipo _string_ no Python é uma instância (um objeto) de uma classe chamada _string_. De forma simples, uma classe é uma estrutura computacional que possui dados e funções (atributos e métodos).
+
+### Concatenação
+Concatenação é juntar um ou mais strings ("juntar" texto), comumente usando o operador "+".
+
+```py
+artigo = 'A '
+substantivo = 'floresta '
+verbo = 'é '
+adjetivo = 'harmoniosa'
+
+frase = artigo + substantivo + verbo + adjetivo
+print(frase)
+```
+
+### Substrings
+_Substrings_ são "pedaços" de um texto maior, uma _string_. No python elas são representadas pelo operador [ ], com ele é possível acessar caracteres em conjunto de caracteres a partir de parâmetros de referência dentro do vetor.
+
+O formato é `Parte = Todo[inicio : fim]`, onde _Todo_ é a _string_ original, _Parte_ o trecho selecionado de _Todo_, _inicio_ e _fim_ delimitam os trechos a serem extraídos. Tanto _inicio_ e _fim_ são valores numéricos e podem estar armazenados em variáveis. 
+
+O _inicio_ e o _fim_ indicam 
