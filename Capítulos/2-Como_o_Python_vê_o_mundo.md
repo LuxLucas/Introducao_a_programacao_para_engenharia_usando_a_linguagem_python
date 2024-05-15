@@ -37,6 +37,14 @@ Assim como em outras linguagens, no Python, todo identificador:
 O Python é case _sensitive_, ou seja, diferencia variáveis com letras minúsculas e maiúsculas. 
 > Também, é aceito acentos em identificadores, mas não é recomendado para programadores.
 
+> _**Escript 2.1:**_ case-sensitive
+> ```py
+> a = 1
+> A = 5
+> print('Variável a - Valor:', a)
+> print('Variável A - Valor:', A)
+> ```
+
 **Tabela 2.1.** Nome de Identificadores
 | Identificadores Válidos | Identificadores Inválidos |
 | :---: | :---: |
@@ -70,13 +78,15 @@ O Python é case _sensitive_, ou seja, diferencia variáveis com letras minúscu
 
 ### Tipos de variáveis
 A linguagem Python é _Dinâmicamente Tipada_. Significa que toda variável possui seu tipo alterado durante a execução do _script_, sendo o interpretador que decide.
-```py
-a = 1       # Inteiro
-a = 1.0     # Float
-a = "1"     # String
-a = True    # Booleano
-a = 3+12j   # Número complexo
-```
+> _**Escript 2.2:**_ tipos
+> ```py
+> a = 1       # Inteiro
+> a = 1.0     # Float
+> a = "1"     # String
+> a = True    # Booleano
+> a = 3+12j   # Número complexo
+> ```
+
 > "#" (quadrilha) indica um comentário, tudo que o seguir, até o fim da linha, será ignorado pelo interpretador.  
 > "\```" (crase) para comentar mais de uma linha, exemplo: \``` código ```.
 
@@ -86,6 +96,115 @@ a = 3+12j   # Número complexo
 | Booleano _(Bool)_ | True, False |
 | Inteiro _(Int)_ | 1 |
 | Ponto Flutuante _(Float)_ | 1.23 |
-| Número complexo | 3+5x |
+| Número complexo _(Complex)_ | 3+5x |
 | String _(Str)_ | "12" |
 
+### Operadores aritméticos
+
+Para operações aritméticas simoles o Python possui:
+| **Operador** | **Descrição** |
+| :----------: | ------------- |
+| + | Soma |
+| - | Subtração |
+| * | Multiplicação |
+| / | Divisão |
+| // | Divisor de inteiros | 
+| % | Retorna o resto de uma  divisão de inteiros |
+| ** | Exponenciação |
+
+Execute o exemplo:
+```py
+a = 1.0         # a vale 1
+b = a + 1       # soma
+c = b - 3.0     # subtração
+d = b / 2       # divisão
+e = a % b       # resto de divisão (retorna o resto da divisão em inteiro)
+f = b ** 2      # exponenciação (em outras linguagens é: b^2)
+g = b * 7       # multiplicação
+h = g // 3      # Divisão que retorna a parte inteira
+
+print(a, b, c, d, e, f, g, h)
+```
+
+No _script_ 2.4, é exemplificado o uso das operações de divisão e resto para saber quantas notas de cada tipo são necessárias para um caixa dar troco, que, no caso, são R$ 135,00 reais. No exemplo há muitas parte que se repetem, peguemos a referente as notas de R$ 100,00:
+
+- Na linha 3, é calculado a divisão entre o troco por 100 e pego a parte inteira dessa divisão, sendo ela, a quantidade de R$ 100,00 para serem entregues.
+- Na linha 4, verifica-se o quanto sobrou para dar de troco, no caso, 35.
+
+> **_Script 2.4:_** maquinatroco
+> ```py
+> troco = 135
+> 
+> notas100 = troco // 100
+> troco = troco % 100
+> print("Entregar ", notas100, "notas de R$ 100,00")
+>
+> notas50 = troco // 50
+> troco = troco % 50
+> print("Entregar ", notas50, "notas de R$ 50,00")
+>
+> notas20 = troco // 20
+> troco = troco % 20
+> print("Entregar ", notas20, "notas de R$ 20,00")
+>
+> notas10 = troco // 10
+> troco = troco % 10
+> print("Entregar ", notas10, "notas de R$ 10,00")
+> 
+> notas5 = troco // 5
+> troco = troco % 5
+> print("Entregar ", notas5, "notas de R$ 5,00")
+>
+> notas2 = troco // 2
+> troco = troco % 2
+> print("Entregar ", notas2, "notas de R$ 2,00")
+>
+> ```
+
+> **Exercício 2.4:** Analise e execute o código, decubra quanto de cada notas será necessário para o troco.
+
+### Operadores lógicos
+Os operadores lógicos comparam variáveis e retornam um _valor lógico_ (tipo booleano), ou seja, True ou False.
+
+**Tabela 2.4:** Operadores Lógicos
+| **Operador** | **Descrição** |
+| :----------: | ------------- |
+| == | Igual |
+| != | Diferente |
+| < | Menor |
+| > | Maior | 
+| <= | Menor igual |
+| >= | Maior igual |
+| not | Negação |
+| and | Operador E |
+| or | Operador OU |
+
+Expressões lógicas podem ser conectadas pelos operadores _and_ (as expressões devem ser verdadeiras para retornar True) e _or_ (pelo menos uma expressão deve ser verdadeira para retornar True). O operador _not_ nega o resultado de uma expressão, retornando um valor contrário, se comparar True retorna False, se comparar False retorna True.
+
+**Tabela de Própria Autoria**
+| Operador |Primeira comparação | Segunda comparação | Resultado |
+| :------: | -------------- | -------------- | --------- |
+| and | True | True | True |
+| and | True | False | False |
+| and | False | False | False |
+| or | True | True | True |
+| or | True | False | True |
+| or | False | False | False |
+| not | True | | False |
+| not | False | | True |
+
+> **_Script 2.5:_** operadoreslogicos.py
+> ```py
+> A = 10
+> B = 15
+> C = 10
+>
+> print("O valor da variável A é igual ao valor de B - ", A == B)
+> print("O valor da variável A é igual ao valor de C - ", A == C)
+> print("O valor da variável A é maior que o valor de C - ", A > C)
+> print("O valor da variável A não é igual ao valor de C - ", A != C)
+> print("O valor da variável A não é igual ao valor de C - ", not A == B)
+> print("O valor da variável A é igual ao valor de C e menor que B - ", A == C and A > B)
+> print("O valor da variável A é igual ao valor de C ou menor que B - ", A == C or A > B)
+> print("O valor da variável A + 5 é igual ou maior que B - ", A+5 >= B)
+> ```
