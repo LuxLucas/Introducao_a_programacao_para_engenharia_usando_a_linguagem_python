@@ -55,27 +55,6 @@ O Python é case _sensitive_, ou seja, diferencia variáveis com letras minúscu
 | a12b12 | a12/b12 |
 | escreva | print |
 
-> **Exercício 2.1.** Explique os erros de sintaxe dos identificadores inválidos na Rabela 2.1.
-
-> **Exercício 2.2.** Marque com um X os identificadores válidos no Python.
-> | Coluna 1 | Coluna 2 | Coluna 3 |
-> | --- | --- | --- |
-> | [ ] media | [ ] x2 | [ ] xYZ |
-> | [ ] salario-min | [ ] Km/h | [ ] W_12 |
-> | [ ] Nome Carro | [ ] 4x4 | [ ] Alun@s |
-> | [ ] SalaQ | [ ] "Média Final" | [ ] A13bq2_1 |
-
-> **Exercício 2.3.** Classifique corretamente o tipo de cada uma das variáveis:
-> 1. Salario_Minimo
-> 2. Nome_Aluno
-> 3. Sexo_Masculino
-> 4. idade
-> 5. Cidade_Natal
-> 6. Hora_Consulta
-> 7. Codigo_Curso
-> 8. Peso
-> 9. Ano_Nascimento
-
 ### Tipos de variáveis
 A linguagem Python é _Dinâmicamente Tipada_. Significa que toda variável possui seu tipo alterado durante a execução do _script_, sendo o interpretador que decide.
 > _**Escript 2.2:**_ tipos
@@ -112,7 +91,6 @@ Para operações aritméticas simoles o Python possui:
 | % | Retorna o resto de uma  divisão de inteiros |
 | ** | Exponenciação |
 
-Execute o exemplo:
 ```py
 a = 1.0         # a vale 1
 b = a + 1       # soma
@@ -264,5 +242,65 @@ _Substrings_ são "pedaços" de um texto maior, uma _string_. No python elas sã
 
 O formato é `Parte = Todo[inicio : fim]`, onde _Todo_ é a _string_ original, _Parte_ o trecho selecionado de _Todo_, _inicio_ e _fim_ delimitam os trechos a serem extraídos. Tanto _inicio_ e _fim_ são valores numéricos e podem estar armazenados em variáveis, delimitam a parte da _string_ a ser extraída.
 
-Quando os valores _inicio_ e _fim_ forem vazios, será atribuído a _inicio_ o valor zero e a _fim_ o maior ìndice da _string_. Quando esses parâmetros forem negativos a referência ou a ordem são determinados pelo tamanho da cadeia de caracteres 
+Quando os valores _inicio_ e _fim_ forem vazios, será atribuído a _inicio_ o valor zero e a _fim_ o maior ìndice da _string_. Quando esses parâmetros forem negativos a referência ou a ordem são determinados pelo tamanho da cadeia de caracteres **menos o valor de referência.**
 
+Tenhamos o seguinte exemplo:
+```py
+Todo = "OCEANO ATLÂNTICO"
+```
+A palavra "OCEANO ATLÂNTICO" em Python possui 16 caracteres - lembre-se o espaço também é um caractere -, numerado de 0 até 15 - totalizando 16 números.
+| Índice  | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  | 13  | 14  | 15  |
+| ------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Palavra | O | C | E | A | N | O |  | A | T | L | Â | N | T | I | C | O |
+
+```py
+Todo = "OCEANO ATLÂNTICO"
+print(Todo[0])      # O
+print(Todo[:2])     # OC
+print(Todo[2:])     # EANO ATLÂNTICO
+print(Todo[-3:])    # ICO
+print(Todo[:-5])    # OCEANO ATLÂ
+print(Todo[2:9])    # EANO AT
+print(Todo[5:1])    # Retorna nada, o início é maior que o fim
+print(Todo[-3:-8])  # Retorna nada, o início é maior que o fim
+```
+
+### Métodos para trabalhar com string
+O tipo _string_ em Python é um objeto advindo da instância de uma classe, no caso a _str_, um caso de lista no Python. Um objeto é formado por atributos - que guardam dados, como variáveis - e métodos, que manipulam os atributos. Há vários métodos para se trabalhar com _strings_, sendo acessados pelo nome da variável, um ponto, a função e seus parâmetros.
+
+Alguns desses métodos são:
+| Método | Descrição |
+| :----: | --------- |
+| capitalize() | Faz o primeiro caractere ficar em maiúsculo, o resto minúsculo |
+| center(x) | Faz o texto ficar centralizado em uma linha de largura "x" caracteres |
+| lstrip() | Remove os espaços antes e depois da _string_ |
+| lstrip(x) | Remove os primerios caracteres da _string_ que forem iguais a "x" |
+| replace(x, y) | Substitui os caracteres "x" por "y" |
+| upper() | Faz o texto ficar todo em maiúsculo |
+| lower() | Faz o texto ficar todo em minúsculo |
+| split(x) | Separa a string em uma lista onde haver "x", por padrão é ' ' |
+
+```py
+texto = "são PAULo"
+
+texto_cap = texto.capitalize()
+print(texto_cap)    # São paulo
+
+texto_cent = texto.center(45)
+print(texto_cent)   #                   são PAULo
+
+texto_low = texto.lower()
+print(texto_low)    # são paulo
+
+texto_up = texto.upper()
+print(texto_up)     # SÃO PAULO
+
+texto_div = texto.split()
+print(texto_div)    # ['são', 'PAULo']
+
+texto_troca = texto.replace("o", "_")
+print(texto_troca)  # sã_ PAUL_
+
+texto_remo = texto.lstrip("são")
+print(texto_remo)   #  PAULo
+```
