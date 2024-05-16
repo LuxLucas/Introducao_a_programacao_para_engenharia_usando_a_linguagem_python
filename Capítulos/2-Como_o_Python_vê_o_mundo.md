@@ -262,6 +262,6 @@ print(frase)
 ### Substrings
 _Substrings_ são "pedaços" de um texto maior, uma _string_. No python elas são representadas pelo operador [ ], com ele é possível acessar caracteres em conjunto de caracteres a partir de parâmetros de referência dentro do vetor.
 
-O formato é `Parte = Todo[inicio : fim]`, onde _Todo_ é a _string_ original, _Parte_ o trecho selecionado de _Todo_, _inicio_ e _fim_ delimitam os trechos a serem extraídos. Tanto _inicio_ e _fim_ são valores numéricos e podem estar armazenados em variáveis. 
+O formato é `Parte = Todo[inicio : fim]`, onde _Todo_ é a _string_ original, _Parte_ o trecho selecionado de _Todo_, _inicio_ e _fim_ delimitam os trechos a serem extraídos. Tanto _inicio_ e _fim_ são valores numéricos e podem estar armazenados em variáveis, delimitam a parte da _string_ a ser extraída.
 
-O _inicio_ e o _fim_ indicam 
+Quando os valores _inicio_ e _fim_ forem vazios, será atribuído a _inicio_ o valor zero e a _fim_ o maior ìndice da _string_. Quando esses parâmetros forem negativos a referência ou a ordem são determinados pelo tamanho da cadeia de caracteres 
