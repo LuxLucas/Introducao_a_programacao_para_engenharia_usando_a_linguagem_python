@@ -268,76 +268,111 @@ print(Todo[-3:-8])  # Retorna nada, o início é maior que o fim
 ### Métodos para trabalhar com string
 O tipo _string_ em Python é um objeto advindo da instância de uma classe, no caso a _str_, um caso de lista no Python. Um objeto é formado por atributos - que guardam dados, como variáveis - e métodos, que manipulam os atributos. Há vários métodos para se trabalhar com _strings_, sendo acessados pelo nome da variável, um ponto, a função e seus parâmetros.
 
-Alguns desses métodos são:
-| Método | Descrição |
-| :----: | --------- |
-| capitalize() | Faz o primeiro caractere ficar em maiúsculo, o resto minúsculo |
-| center(x) | Faz o texto ficar centralizado em uma linha de largura "x" caracteres |
-| lstrip() | Remove os espaços antes e depois da _string_ |
-| lstrip(x) | Remove os primerios caracteres da _string_ que forem iguais a "x" |
-| replace(x, y) | Substitui os caracteres "x" por "y" |
-| upper() | Faz o texto ficar todo em maiúsculo |
-| lower() | Faz o texto ficar todo em minúsculo |
-
 ```py
 texto = "são PAULo"
+```
 
+Alguns desses métodos são:
+
+#### Capitalize()
+Faz o primeiro caractere ficar em maiúsculo, o resto minúsculo.
+```py
 texto_cap = texto.capitalize()
 print(texto_cap)    # São paulo
+```
 
+#### Center(x)
+Faz o texto ficar centralizado em uma linha de largura "x" caracteres.
+```py
 texto_cent = texto.center(45)
 print(texto_cent)   #                   são PAULo
+```
 
-texto_low = texto.lower()
-print(texto_low)    # são paulo
-
-texto_up = texto.upper()
-print(texto_up)     # SÃO PAULO
-
-texto_troca = texto.replace("o", "_")
-print(texto_troca)  # sã_ PAUL_
-
+#### Lstrip(x)
+Remove os primerios caracteres da _string_ que forem iguais a "x".
+```py
 texto_remo = texto.lstrip("são")
 print(texto_remo)   #  PAULo
 ```
 
+#### Replace(x, y)
+Substitui os caracteres "x" por "y".
+```py
+texto_troca = texto.replace("o", "_")
+print(texto_troca)  # sã_ PAUL_
+```
+
+#### Upper() 
+Faz o texto ficar todo em maiúsculo 
+```py
+texto_up = texto.upper()
+print(texto_up)     # SÃO PAULO
+```
+
+#### Lower()
+Faz o texto ficar todo em minúsculo |
+```py
+texto_low = texto.lower()
+print(texto_low)    # são paulo
+```
+
 ### Métodos relacionados com string
 Também há métodos que lidam com _substrings_.
-| Método | Desrição |
-| ------ | :------: |
-| count(x) | Conta quantas vezes há "x" na _string_ |
-| find(x) | Retorna o indice mais baixo da _substring_ "x" na_string_; -1 se "x" não é encontrado |
-| endswirth(x) | Retorna True caso a _string termine com _"x". |
-| index(x) | Como o find(x), mas retorna ValueError se não existir |
-| rfind(x) | Como find(x), mas retorna o maior índice |
-| rindex(x) | Como o index(x) retorna, mas retorna o maior index |
-| split(x) | Divide a string em palavras, sendo o  separador "x" |
-| len(x) | Retorna o número de caracteres _string_ "x" |
-
 ```py
 palavra = "Paralelo"
-
+```
+#### Count(x)
+Conta quantas vezes há "x" na _string_.
+```py
 cont_palavra = palavra.count("a")
 print(cont_palavra)     # 2
+```
 
+#### Find(x)
+Retorna o indice mais baixo da _substring_ "x" na_string_; -1 se "x" não é encontrado.
+```py
+find_palavra = palavra.find("l")
+print(find_palavra)     # 4
+```
+
+#### Endswirth(x)
+Retorna True caso a _string_ termine com "x".
+```py
 fim_palavra = palavra.endswith("o")
 print(fim_palavra)      # True
+```
 
-find_palavra =palavra.find("l")
-print(find_palavra)     # 4
-
+#### Index(x)
+Como o find(x), mas retorna ValueError se não existir.
+```py
 index_palavra = palavra.index("e")
 print(index_palavra)    # 5
+```
 
+#### Rfind(x)
+Como find(x), mas retorna o maior índice.
+```py
 rfind_palavra = palavra.rfind("P")
 print(rfind_palavra)    # 0
+```
 
+#### Rindex(x)
+Como o index(x) retorna, mas retorna o maior index.
+```py
 rindex_palavra = palavra.rindex("a")
 print(rindex_palavra)   # 3
+```
 
+#### Split(x) 
+Divide a string em palavras, sendo o  separador "x".
+```py
 split_palavra = palavra.split('l')
 print(split_palavra)    # ['Para', 'e', 'o']
+```
 
+#### Len(x)
+Retorna o número de caracteres _string_ "x".
+```py
 tamanho_palavra = len(palavra)
 print(tamanho_palavra)  # 8
 ```
