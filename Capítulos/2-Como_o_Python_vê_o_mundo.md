@@ -278,7 +278,6 @@ Alguns desses métodos são:
 | replace(x, y) | Substitui os caracteres "x" por "y" |
 | upper() | Faz o texto ficar todo em maiúsculo |
 | lower() | Faz o texto ficar todo em minúsculo |
-| split(x) | Separa a string em uma lista onde haver "x", por padrão é ' ' |
 
 ```py
 texto = "são PAULo"
@@ -295,12 +294,50 @@ print(texto_low)    # são paulo
 texto_up = texto.upper()
 print(texto_up)     # SÃO PAULO
 
-texto_div = texto.split()
-print(texto_div)    # ['são', 'PAULo']
-
 texto_troca = texto.replace("o", "_")
 print(texto_troca)  # sã_ PAUL_
 
 texto_remo = texto.lstrip("são")
 print(texto_remo)   #  PAULo
+```
+
+### Métodos relacionados com string
+Também há métodos que lidam com _substrings_.
+| Método | Desrição |
+| ------ | :------: |
+| count(x) | Conta quantas vezes há "x" na _string_ |
+| find(x) | Retorna o indice mais baixo da _substring_ "x" na_string_; -1 se "x" não é encontrado |
+| endswirth(x) | Retorna True caso a _string termine com _"x". |
+| index(x) | Como o find(x), mas retorna ValueError se não existir |
+| rfind(x) | Como find(x), mas retorna o maior índice |
+| rindex(x) | Como o index(x) retorna, mas retorna o maior index |
+| split(x) | Divide a string em palavras, sendo o  separador "x" |
+| len(x) | Retorna o número de caracteres _string_ "x" |
+
+```py
+palavra = "Paralelo"
+
+cont_palavra = palavra.count("a")
+print(cont_palavra)     # 2
+
+fim_palavra = palavra.endswith("o")
+print(fim_palavra)      # True
+
+find_palavra =palavra.find("l")
+print(find_palavra)     # 4
+
+index_palavra = palavra.index("e")
+print(index_palavra)    # 5
+
+rfind_palavra = palavra.rfind("P")
+print(rfind_palavra)    # 0
+
+rindex_palavra = palavra.rindex("a")
+print(rindex_palavra)   # 3
+
+split_palavra = palavra.split('l')
+print(split_palavra)    # ['Para', 'e', 'o']
+
+tamanho_palavra = len(palavra)
+print(tamanho_palavra)  # 8
 ```
