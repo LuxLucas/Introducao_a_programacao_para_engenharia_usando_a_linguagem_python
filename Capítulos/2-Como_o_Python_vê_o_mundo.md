@@ -37,13 +37,12 @@ Assim como em outras linguagens, no Python, todo identificador:
 O Python é case _sensitive_, ou seja, diferencia variáveis com letras minúsculas e maiúsculas. 
 > Também, é aceito acentos em identificadores, mas não é recomendado para programadores.
 
-> _**Escript 2.1:**_ case-sensitive
-> ```py
-> a = 1
-> A = 5
-> print('Variável a - Valor:', a)
-> print('Variável A - Valor:', A)
-> ```
+```py
+a = 1
+A = 5
+print('Variável a - Valor:', a)
+print('Variável A - Valor:', A)
+```
 
 **Tabela 2.1.** Nome de Identificadores
 | Identificadores Válidos | Identificadores Inválidos |
@@ -57,7 +56,6 @@ O Python é case _sensitive_, ou seja, diferencia variáveis com letras minúscu
 
 ### Tipos de variáveis
 A linguagem Python é _Dinâmicamente Tipada_. Significa que toda variável possui seu tipo alterado durante a execução do _script_, sendo o interpretador que decide.
-> _**Escript 2.2:**_ tipos
  ```py
  a = 1       # Inteiro
  a = 1.0     # Float
@@ -109,7 +107,6 @@ No _script_ 2.4, é exemplificado o uso das operações de divisão e resto para
 - Na linha 3, é calculado a divisão entre o troco por 100 e pego a parte inteira dessa divisão, sendo ela, a quantidade de R$ 100,00 para serem entregues.
 - Na linha 4, verifica-se o quanto sobrou para dar de troco, no caso, 35.
 
-> **_Script 2.4:_** maquinatroco
 ```py
  troco = 135
  
@@ -138,8 +135,6 @@ troco = troco % 2
 print("Entregar ", notas2, "notas de R$ 2,00")
 ```
 
-> **Exercício 2.4:** Analise e execute o código, decubra quanto de cada notas será necessário para o troco.
-
 ### Operadores lógicos
 Os operadores lógicos comparam variáveis e retornam um _valor lógico_ (tipo booleano), ou seja, True ou False.
 
@@ -158,7 +153,6 @@ Os operadores lógicos comparam variáveis e retornam um _valor lógico_ (tipo b
 
 Expressões lógicas podem ser conectadas pelos operadores _and_ (as expressões devem ser verdadeiras para retornar True) e _or_ (pelo menos uma expressão deve ser verdadeira para retornar True). O operador _not_ nega o resultado de uma expressão, retornando um valor contrário, se comparar True retorna False, se comparar False retorna True.
 
-> **_Script 2.5:_** operadoreslogicos.py
 ```py
 A = 10
 B = 15
