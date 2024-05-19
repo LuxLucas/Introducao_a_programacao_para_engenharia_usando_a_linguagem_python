@@ -110,3 +110,104 @@ elif (segundo_numero == maior or segundo_numero == menor) and (primeiro_numero =
 # Retorna o resultado
 print("O maior número é: ", maior, ". O número médio é: ", medio, ". O menor número é: ", menor)
 ```
+
+## Laços
+Certas ocasiões precisamos que um pedaço de código seja repetido uma quantidade _x_ de vezes, seja essa quantidade determinada ou não. Assim como outras linguagens, o Python utiliza os
+comando `for` e `while`, mas com algumas peculiaridades - como veremos no `for`.
+
+### While
+O comando `while` repete um bloco de código enquanto uma condição for verdadeira. Quando ele termina uma execução, retorna para testar a condição e, se for verdadeira, reexecuta o pedaço deo programa, se não, sai do laço de repetição. Segue o exemplo.
+
+```py
+from random import randint
+
+# Computador sorteia um número inteiro entre 1 e 100
+num_computador = randint(1, 100)
+
+# Número de tentativas máxima
+tentativas_max = 10
+
+# Número de tentativas inicial
+tentativas = 0
+
+num_digitado = 0
+while (tentativas < tentativas_max) and (num_digitado != num_computador):
+    print("\nVocê tem", tentativas_max - tentativas, "chances")
+    num_digitado = int(input('Qual o número do computador?: '))
+
+    # Incrementa o número de tentativas
+    tentativas += 1
+
+    # Informa se o número digitado for menor que o escolhido pelo computador
+    if (num_computador < num_digitado):
+        print("O número sortedo é menor que", num_digitado)
+
+    # Informa se o número digiado for maior que o escolhido
+    elif (num_computador > num_digitado):
+        print("O número sortedo é maior que", num_digitado)
+
+# Informa o resultado
+if num_digitado == num_computador:
+    print("Parabéns, você acertou o número escolhido pelo computador em", tentativas, "tentativas")
+else:
+    print("Você perdeu o número escolhido foi:", num_computador)
+```
+
+### For
+Diferente de linguagens como Visual Basic, PHP e Java, o `for`do Python lida com um conjunto de dados iterativos. Ao contrário das linguagens citadas o, a instrução `for` do Python não altera uma variável sequencialmente de forma a atingir um limite superior ou inferior. Dados iterativos no Python são: `list`, `set`, `range`, `dict` e `tuple`.
+
+Examine o comando com **for x in conjunto:**. Primeiro inicia-se pela palavra reservada `for` e, depois, uma variável "x" de cada elemto do conjunto.
+
+Suponha um conjunto de elementos inteiros formados por: [0, 1, 2, 3, 4]. Para cada repetição a variável "x" receberá um valor de cada elemento do conjunto, na primeira repetição "x" receberá 0, na segunda, 1, assim por diante até receber o último elemento do conjunto - no caso 4. Quando uma repetição termina, "x" recebe o próximo elemento do conjunto. Esse tipo de repetição idealmente só termina quando "x" recebe o último valor do conjunto.
+
+Uma maneira de utilizar o `for` como nas outras linguagens é por meio da função `range()`, que recebe um número inteiro _n_ e retorna um conjunto de _n_ números, padronizadamente, de 0 até _n_.
+
+```py
+for x in range(4):
+    print(x, end=" ")
+    # Escreve 0 1 2 3
+print() # Quebra de linha
+ 
+for x in range(1, 4):   # Utiliza o início e o fim do range
+    print(x, end=" ")
+    # Escreve 1 2 3
+print() # Quebra de linha
+
+for x in range(1, 8, 2):    # Utiliza o início, fim e o incremento
+    print(x, end=" ")
+    # Escreve 1 3 5 7 
+print()
+
+for x in range(8, 1, -2):   # Utiliza o for de maneira decrescente
+    print(x, end=" ")
+    # Escreve 8 6 4 2
+print()
+```
+
+### O _break_ e o _else_
+Há duas instruções que podem ser usadas junto de laços de repetição:
+
+- O _break_ interrompe a execução do laço de repetição mais próximo em que está inserindo
+- O _else_ define um bloco de código que será executado após o fim do laço de repetição, desde que _não tenha sido interrompido pelo break_
+
+```py
+for x in range(3):
+    for y in range(3):
+        if x <= y:
+            break
+        print(x, y)
+# Resultado:
+# 1 0
+# 2 0
+# 2 1
+```
+
+```py
+soma_repeticao = 0
+for i in range(3):
+    for j in range(5):
+        soma_repeticao += x + j
+else:
+    print(soma_repeticao)
+    # Escreve 60
+```
